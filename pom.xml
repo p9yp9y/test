@@ -2,8 +2,44 @@
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>test</artifactId>
 	<groupId>test</groupId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<packaging>jar</packaging>
+
+	<properties>
+		<eir.nexus.repositories>http://nexus.eir.hmei.hu/content/repositories/</eir.nexus.repositories>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>nexus</id>
+			<name>Nexus</name>
+			<url>${eir.nexus.repositories}releases/</url>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>codehaus-snapshots</id>
+			<url>${eir.nexus.repositories}codehaus-snapshots/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<url>${eir.nexus.repositories}releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<url>${eir.nexus.repositories}snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<build>
 		<finalName>test</finalName>
